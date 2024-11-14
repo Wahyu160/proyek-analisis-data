@@ -10,7 +10,7 @@ st.write("Analisis tren penggunaan sepeda dan pengaruh kondisi cuaca terhadap ju
 
 def load_data():
     file_path = os.path.join(os.getcwd(), 'dashboard', 'all_data.csv')
-    data = pd.read_csv('dashboard/all_data.csv', parse_dates=['dteday'])  
+    data = pd.read_csv('all_data.csv', parse_dates=['dteday'])  
     return data
 
 def display_filtered_data(selected_date, hour_df):
@@ -45,14 +45,15 @@ def display_daily_total(hour_df):
     st.pyplot(plt)
 
 def display_scatter_temperature(hour_df):
-    st.write("### Jumlah Peminjaman Sepeda terhadap Temperatur dengan Warna Berdasarkan Kelembapan")
+    st.write("### Jumlah Peminjaman Sepeda terhadap Jam dengan Warna Berdasarkan Kondisi Cuaca")
     plt.figure(figsize=(10, 5))
-    sc = plt.scatter(hour_df['temp_x'], hour_df['cnt_x'], c=hour_df['hum_x'], cmap='coolwarm', alpha=0.6)
-    plt.colorbar(sc, label="Kelembapan")
-    plt.title("Jumlah Peminjaman Sepeda terhadap Temperatur dengan Warna Berdasarkan Kelembapan")
-    plt.xlabel("Temperatur")
+    sc = plt.scatter(hour_df['hr'], hour_df['cnt_x'], c=hour_df['weathersit_x'], cmap='viridis', alpha=0.6)
+    plt.colorbar(sc, label="Kondisi Cuaca (weathersit)")
+    plt.title("Jumlah Peminjaman Sepeda terhadap Jam dengan Warna Berdasarkan Kondisi Cuaca")
+    plt.xlabel("Jam")
     plt.ylabel("Jumlah Peminjaman")
     st.pyplot(plt)
+
 
 def display_clustering(hour_df):
     st.write("### Clustering Pengguna Sepeda Berdasarkan Jam dan Hari")
