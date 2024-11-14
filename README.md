@@ -1,4 +1,4 @@
-# Proyek Analisi Data ✨
+# Proyek Analisis Data ✨
 
 ## Setup Environment - Anaconda
 ```
