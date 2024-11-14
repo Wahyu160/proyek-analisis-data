@@ -10,7 +10,7 @@ st.write("Analisis tren penggunaan sepeda dan pengaruh kondisi cuaca terhadap ju
 
 def load_data():
     file_path = os.path.join(os.getcwd(), 'dashboard', 'all_data.csv')
-    data = pd.read_csv('all_data.csv', parse_dates=['dteday'])  
+    data = pd.read_csv('dashboard/all_data.csv', parse_dates=['dteday'])  
     return data
 
 def display_filtered_data(selected_date, hour_df):
